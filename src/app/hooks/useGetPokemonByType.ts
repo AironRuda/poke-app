@@ -43,6 +43,7 @@ async function getPokemonByType(typeId: string): Promise<IPokemonByType> {
 
     return pokemonByTypeResponseAdapter(response);
   } catch (error) {
+    console.log("error", error);
     throw new Error("Error fetching pokemon by type");
   }
 }

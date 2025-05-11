@@ -53,7 +53,7 @@ const PokemonList = ({ pokemonIdsList }: { pokemonIdsList: string[] }) => {
 
     if (isLoading) return <LoadingCard />;
     if (isError) return <ErrorCard />;
-    if (!pokemonDetails) return <ErrorCard />;
+    if (!pokemonDetails) return <NotResultFound />;
 
     return <PokemonCard pokemonDetails={pokemonDetails} />;
   };

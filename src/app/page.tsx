@@ -18,7 +18,7 @@ const PokemonsView = () => {
         <h1>
           Discover
           <span className="text-gradient"> Pokémon </span>
-          you'll love, no grinding, just fun
+          you&apos;ll love, no grinding, just fun
         </h1>
       </header>
       <Search search={searchTerm} setSearch={setSearchTerm} />

@@ -43,6 +43,7 @@ async function getPokemonDetails(id: string): Promise<IPokemonDetails> {
     const response = await api.Get<IPokemonDetailsDTO>(`/pokemon/${id}`);
     return pokemonDetailsAdapter(response);
   } catch (error) {
+    console.log("error", error);
     throw new Error("Error fetching pokemon details");
   }
 }

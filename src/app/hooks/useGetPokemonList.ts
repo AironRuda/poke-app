@@ -52,6 +52,7 @@ async function getPokemonList(
     console.log("response", response);
     return pokemonListResponseAdapter(response);
   } catch (error) {
+    console.log("error", error);
     throw new Error("Error fetching pokemon list");
   }
 }
