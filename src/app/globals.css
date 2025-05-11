@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #9181a1;
+  --color-secondary: #2c2a4a;
+  --color-tertiary: #d9cfc1;
+  --color-quaternary: #a8c3d1;
+  --color-quinary: #d67e61;
+  --color-senary: #8ba88f;
+
+  --font-geist-sans: var(--font-geist-sans);
+  --font-geist-mono: var(--font-geist-mono);
+
+  --breakpoint-xs: 480px;
+
+  --background-image-poke-pattern: url("/poke-pattern.png");
+
+  --color-normal: #d9d5c9;
+  --color-normal-badge: #a8a77a;
+
+  --color-fire: #ffd1b5;
+  --color-fire-badge: #ee8130;
+
+  --color-water: #b3d9ff;
+  --color-water-badge: #6390f0;
+
+  --color-grass: #cdebb0;
+  --color-grass-badge: #7ac74c;
+
+  --color-electric: #fff5b8;
+  --color-electric-badge: #f7d02c;
+
+  --color-ice: #d0f6f9;
+  --color-ice-badge: #96d9d6;
+
+  --color-fighting: #e8b2a9;
+  --color-fighting-badge: #c22e28;
+
+  --color-poison: #d9b3dd;
+  --color-poison-badge: #a33ea1;
+
+  --color-ground: #e6d3b3;
+  --color-ground-badge: #e2bf65;
+
+  --color-flying: #d6d5f9;
+  --color-flying-badge: #a98ff3;
+
+  --color-psychic: #f7c0d9;
+  --color-psychic-badge: #f95587;
+
+  --color-bug: #d2e8a3;
+  --color-bug-badge: #a6b91a;
+
+  --color-rock: #ddd1bb;
+  --color-rock-badge: #b6a136;
+
+  --color-ghost: #c5b9dd;
+  --color-ghost-badge: #735797;
+
+  --color-dragon: #c7b9e9;
+  --color-dragon-badge: #6f35fc;
+
+  --color-dark: #b7b7bb;
+  --color-dark-badge: #705746;
+
+  --color-steel: #d1d1e0;
+  --color-steel-badge: #b7b7ce;
+
+  --color-fairy: #fad6e6;
+  --color-fairy-badge: #d685ad;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-geist-sans);
+    font-optical-sizing: auto;
+    background-image: url("/poke-pattern.png");
+    background-repeat: repeat;
+  }
+
+  h1 {
+    @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
+  }
+
+  h2 {
+    @apply text-2xl font-bold text-white sm:text-3xl;
+  }
+
+  main {
+    @apply min-h-screen relative;
+  }
+
+  button:disabled,
+  button:disabled:hover {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+}
+
+@layer components {
+  .pattern {
+    @apply w-screen h-screen bg-center bg-cover absolute z-0;
+  }
+
+  .nav-link {
+    @apply rounded-full px-4 py-2 text-white cursor-pointer border-2 border-white;
+  }
+
+  .wrapper {
+    @apply px-2  py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
+  }
+
+  .banner {
+    @apply flex flex-col items-center justify-center px-5;
+  }
+
+  .search {
+    @apply w-full bg-tertiary px-4 py-3 rounded-lg mt-10 max-w-3xl mx-auto;
+
+    & div {
+      @apply relative flex items-center;
+    }
+
+    & img {
+      @apply absolute left-2 h-5 w-5;
+      filter: brightness(0) saturate(100%) invert(45%) sepia(8%) saturate(1012%)
+        hue-rotate(231deg) brightness(90%) contrast(87%);
+    }
+
+    & input {
+      @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-lg text-black placeholder-secondary outline-hidden;
+    }
+  }
+
+  .pagination-button {
+    @apply bg-primary flex items-center justify-center w-15 h-15 px-4 py-2 rounded-lg text-white hover:bg-quinary transition-colors duration-300;
+  }
+
+  .all-pokemons {
+    @apply space-y-9 mt-10;
+
+    & ul {
+      @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+    }
+  }
+
+  .pokemon-card {
+    @apply flex flex-col items-center bg-tertiary p-5 rounded-2xl shadow-inner shadow-secondary/10;
+
+    & img {
+      @apply rounded-lg h-auto w-full;
+    }
+
+    & h3 {
+      @apply text-white font-bold text-base line-clamp-1;
+    }
+
+    & .content {
+      @apply mt-2 flex flex-row items-center flex-wrap gap-2;
+    }
+
+    & .rating {
+      @apply flex flex-row items-center gap-1;
+    }
+
+    & .rating img {
+      @apply size-4 object-contain;
+    }
+
+    & .rating p {
+      @apply font-bold text-base text-white;
+    }
+
+    & .content span {
+      @apply text-sm text-gray-100;
+    }
+
+    & .content .lang {
+      @apply capitalize text-gray-100 font-medium text-base;
+    }
+
+    & .content .year {
+      @apply text-gray-100 font-medium text-base;
+    }
+  }
+
+  .badge {
+    @apply rounded-full px-4 py-2 text-white cursor-pointer border-2 border-white flex justify-center items-center gap-1;
+
+    & img {
+      @apply size-8 object-contain;
+    }
+  }
+
+  .badge-types {
+    @apply space-y-9 mt-10;
+
+    & ul {
+      @apply grid grid-cols-2 gap-5 xs:grid-cols-3 md:grid-cols-7 lg:grid-cols-9;
+    }
+  }
+}
+
+@utility text-gradient {
+  @apply bg-linear-to-r from-primary to-quinary bg-clip-text text-transparent;
+}
+
+@utility fancy-text {
+  -webkit-text-stroke: 5px rgba(206, 206, 251, 0.5);
+  font-size: 190px;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
