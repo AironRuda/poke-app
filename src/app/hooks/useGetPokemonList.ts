@@ -45,11 +45,9 @@ async function getPokemonList(
   pagination: string
 ): Promise<IPokemonListResponse> {
   try {
-    console.log("pagination", pagination);
     const response = await api.Get<IPokemonListResponseDTO>(
       `/pokemon${pagination}`
     );
-    console.log("response", response);
     return pokemonListResponseAdapter(response);
   } catch (error) {
     console.log("error", error);
