@@ -96,10 +96,6 @@ El proyecto incluye configuración de Jest para pruebas unitarias y de integraci
 npm test
 ```
 
-## 🎥 Demostración
-
-[Video de demostración de la aplicación]
-
 ## 📝 Notas Adicionales
 
 - La aplicación utiliza la API pública de Pokémon
